@@ -8,3 +8,45 @@ body {
   min-height: 100vh;
 }
 
+h1 {
+  display: block;
+  width: 100vw;
+  background-color: black;
+  color: white;
+  padding: 1rem;
+  margin-top: 0;
+}
+
+.container {
+  margin: 7vh 4vw;
+}
+
+.add-row-btn {
+  outline: none;
+  padding: .2rem 3rem;
+  background-color: black;
+  color: antiquewhite;
+  display: block;
+}
+
+table {
+  margin-top: 2rem;
+  width: 100%;
+   border-spacing:0; /* Removes the cell spacing via CSS */
+  border-collapse: collapse;/*if you don't want to have double border where cells touch*/
+}
+
+thead,tbody{margin:0rem;}
+
+td,th {
+  text-align: center;
+  border: thin solid black;
+  padding: 0;
+  margin: 0;
+}
+
+td {padding: .5rem 1rem 2rem;}
+
+th {padding: .5rem 1rem;}
+
+
