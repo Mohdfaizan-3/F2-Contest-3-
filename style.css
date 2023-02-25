@@ -1,4 +1,8 @@
-*, *::before, *::after{box-sizing: inherit;}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
 html {
   box-sizing: border-box;
 }
@@ -23,7 +27,7 @@ h1 {
 
 .add-row-btn {
   outline: none;
-  padding: .2rem 3rem;
+  padding: 0.2rem 3rem;
   background-color: black;
   color: antiquewhite;
   display: block;
@@ -32,29 +36,33 @@ h1 {
 table {
   margin-top: 2rem;
   width: 100%;
-   border-spacing:0; /* Removes the cell spacing via CSS */
-  border-collapse: collapse;/*if you don't want to have double border where cells touch*/
+  border-spacing: 0; /* Removes the cell spacing via CSS */
+  border-collapse: collapse; /*if you don't want to have double border where cells touch*/
 }
 
-thead,tbody{margin:0rem;}
+thead,
+tbody {
+  margin: 0rem;
+}
 
-td,th {
+td,
+th {
   text-align: center;
   border: thin solid black;
- 
-
 }
 
-td {padding: .5rem 1rem 2rem;}
+td {
+  padding: 0.5rem 1rem 2rem;
+}
 
-th {padding: .5rem 1rem;}
-
+th {
+  padding: 0.5rem 1rem;
+}
 
 .save-btn {
-  display: block;
-  margin: 1rem auto;
+  display: block; /* to center button*/
+  margin: 1rem auto; /* to center button*/
   background-color: black;
   outline: none;
   color: white;
 }
-

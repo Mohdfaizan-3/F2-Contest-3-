@@ -8,14 +8,50 @@ function Constructor(
   marks,
   markedBy
 ) {
-  name = this.name;
-  rollNo = this.rollNo;
-  subject = this.subject;
-  marks = this.marks;
-  markedBy = this.markedBy;
+  this.name = name;
+  this.rollNo = rollNo;
+  this.subject = subject;
+  this.marks = marks;
+  this.markedBy = markedBy;
 }
 
 addNewRow.addEventListener("click", createData);
+
+function handleValue(buttonElement) {
+  const parentElement =
+    buttonElement.parentElement.parentElement;
+  const cells = parentElement.cells;
+  for (let i = 1; i < cells.length - 1; i++) {
+    const value = cells[i].querySelector("input").value;
+    console.log(value);
+  }
+}
+
+function handleEdit(event) {
+  const buttonElement = event.target;
+  
+  const parentElement =
+    buttonElement.parentElement.parentElement;
+
+  if (buttonElement.textContent === "Edit") {
+    buttonElement.textContent = "Save";
+    const inputs = parentElement.querySelectorAll("input");
+    inputs.forEach((input) => {
+      input.disabled = false;
+    });
+    
+  } else {
+    buttonElement.textContent = "Edit";
+    const inputs = parentElement.querySelectorAll("input");
+    inputs.forEach((input) => {
+      input.disabled = true;
+    });
+    handleValue(buttonElement);
+  }
+}
+
+
+
 
 function createData() {
   const newRow = document.createElement("tr");
@@ -24,22 +60,53 @@ function createData() {
   const id = document.createElement("td");
   id.textContent = newRowId;
   id.setAttribute("style", "text-align: center;");
-  newRow.append(id);
 
-  for (let i = 0; i < 5; i++) {
-    const cell = document.createElement("td");
-    newRow.appendChild(cell);
-    const input = document.createElement("input");
-    input.type = "text";
-    cell.appendChild(input);
-  }
-    const saveButton = document.createElement('button');
-    saveButton.innerText = 'save';
-    saveButton.classList.add('save-btn');
+  const Namecell = document.createElement("td");
+  const input = document.createElement("input");
+  input.type = "text";
+  input.disabled = true;
+  Namecell.appendChild(input);
 
-  newRow.appendChild(saveButton);
+  const rollNocell = document.createElement("td");
+  const inputrollNocell = document.createElement("input");
+  inputrollNocell.type = "number";
+  inputrollNocell.disabled = true;
+  rollNocell.appendChild(inputrollNocell);
+
+  const subjectcell = document.createElement("td");
+  const inputsubject = document.createElement("input");
+  inputsubject.type = "text";
+  inputsubject.disabled = true;
+  subjectcell.appendChild(inputsubject);
+
+  const markscell = document.createElement("td");
+  const inputmarks = document.createElement("input");
+  inputmarks.type = "number";
+  inputmarks.disabled = true;
+  markscell.appendChild(inputmarks);
+
+  const markedBycell = document.createElement("td");
+  const inputmarkedBy = document.createElement("input");
+  inputmarkedBy.type = "email";
+  inputmarkedBy.disabled = true;
+  markedBycell.appendChild(inputmarkedBy);
+
+  const savecell = document.createElement("td");
+  const saveButton = document.createElement("button");
+  saveButton.textContent = "Edit";
+  saveButton.classList.add("save-btn");
+  saveButton.id = newRowId;
+  saveButton.addEventListener("click", handleEdit);
+  savecell.appendChild(saveButton);
+
+  newRow.append(
+    id,
+    Namecell,
+    rollNocell,
+    subjectcell,
+    markscell,
+    markedBycell,
+    savecell
+  );
   table.append(newRow);
-  
 }
-
-
