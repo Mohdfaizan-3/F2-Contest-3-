@@ -33,5 +33,13 @@ function createData() {
     input.type = "text";
     cell.appendChild(input);
   }
+    const saveButton = document.createElement('button');
+    saveButton.innerText = 'save';
+    saveButton.classList.add('save-btn');
+
+  newRow.appendChild(saveButton);
   table.append(newRow);
+  
 }
+
+
